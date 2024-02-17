@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donating Food</title>
+    <link rel="stylesheet" href="../static/css/loginstyle.css">
+    <style>
+        /* Add custom styles for the popup */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #06C167;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body style="background-color: #06C167;">
+    <div class="container">
+        <div class="regformf">
+            <form action="./available_uploads" method="post" onsubmit="showPopup(event)">
+                <p class="logo"><b style="color: #06C167;">Feedify</b></p>
+                
+                <div class="input">
+                    <label for="foodname"> Food Name:</label>
+                    <input type="text" id="foodname" name="foodname" required/>
+                </div>     
+                
+                <div class="radio">
+                    <label for="meal">Meal type :</label> 
+                    <br><br>
+                    <input type="radio" name="meal" id="veg" value="veg" required/>
+                    <label for="veg" style="padding-right: 40px;">Veg</label>
+                    <input type="radio" name="meal" id="Non-veg" value="Non-veg">
+                    <label for="Non-veg">Non-veg</label>
+                </div>
+                <br>
+                
+                <div class="input">
+                    <label for="quantity">Quantity: (per-kg)</label>
+                    <input type="text" id="quantity" name="quantity" required/>
+                </div>      
+                
+                <div class="input">
+                    <label for="Expiry-Date-time"> Expiry Date and time:</label>
+                    <input type="datetime-local" value="2024-01-01T12:00" required/>
+                </div>    
+                
+                <div class="btn">
+                    <button type="submit" name="submit"> Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>   
+    
+    <!-- Popup message -->
+    <div id="popup">
+        <p>🎉Thanks for donating. A confirmation mail will be sent shortly.🎉</p>
+    </div>
+    
+    <script>
+        function showPopup(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            // Show the popup
+            document.getElementById('popup').style.display = 'block';
+            
+            // You can add additional logic here such as submitting the form via AJAX
+            
+            // Optionally, you can redirect the user after a certain delay
+            setTimeout(function() {
+                window.location.href = './'; // Replace with your desired redirect URL
+            }, 3000); // Redirect after 3 seconds (3000 milliseconds)
+        }
+    </script>
+</body>
+</html>

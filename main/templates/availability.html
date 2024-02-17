@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Availability</title>
+    <!-- font super icons as Fonts -->
+    <script src="https://kit.fontawesome.com/4e6c12451b.js" crossorigin="anonymous"></script>
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="../static/css/avail.css">
+    <style>
+        /* Custom CSS for styling position and points */
+        .player {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align items to the ends of the div */
+            margin-bottom: 10px;
+            background-color: #f9f9f9; /* Background color */
+            padding: 15px; /* Padding around each donor */
+            border-radius: 8px; /* Border radius for rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a slight depth effect */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Styling for player info */
+        .player-info {
+            margin: 0; /* Remove default margin */
+            font-size: 16px; /* Adjust font size */
+            color: #333; /* Text color */
+        }
+
+        /* Hover effect */
+        .player:hover {
+            transform: translateY(-5px); /* Move the donor up slightly on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Increase box shadow on hover for depth effect */
+        }
+
+        /* Styling for position */
+        .position {
+            font-weight: bold; /* Bold font weight */
+            margin-right: 5px; /* Margin between position and username */
+        }
+
+        /* Styling for purchase button */
+        .purchase-option {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .purchase-option:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        /* Popup message */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #06C167;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header start -->
+    <header>
+
+    </header>
+    <!-- Header end -->
+    <main>
+        <!-- Top players and top Blogs -->
+        <section class="container">
+            <div class="top-players">
+                <h2 class="section-title">Current Availability</h2>
+                <div class="players">
+                    <!-- Modify the structure to display position, username, and points -->
+
+                    <div class="player">
+                        <span class="position">Sl/No</span>
+                        <span class="player-info">Item</span>                        
+                        <span class="food-quantity">Quantity(in kg)</span>
+                        <span class="player-info"></span>
+                    </div>
+
+                    <div class="player">
+                        <span class="position">1.</span>
+                        <span class="player-info">Biriyani </span>
+                        
+                        <span class="food-quantity">6</span>
+                        <button class="purchase-option" onclick="showPopup()">Purchase</button>
+                    </div>
+                
+                    <div class="player">
+                        <span class="position">2.</span>
+                        <span class="player-info">Friedrice </span>
+                        
+                        <span class="food-quantity">10</span>
+                        <button class="purchase-option" onclick="showPopup()">Purchase</button>
+                    </div>
+                    <div class="player">
+                        <span class="position">3.</span>
+                        <span class="player-info">Idli</span>
+                        
+                        <span class="food-quantity">2</span>
+                        <button class="purchase-option" onclick="showPopup()">Purchase</button>
+                    </div>
+                    <div class="player">
+                        <span class="position">4.</span>
+                        <span class="player-info">Rice</span>
+                        
+                        <span class="food-quantity">10</span>
+                        <button class="purchase-option" onclick="showPopup()">Purchase</button>
+                    </div>
+                    <!-- <div class="player">
+                         <span class="position">5.</span>
+                        <span class="player-info">Dosa</span>
+                       
+                        <span class="food-quantity">10</span>
+                        <button class="purchase-option"><i class="fas fa-shopping-cart"></i> Purchase</button>
+                    </div>
+                    <div class="player">
+                        <span class="position">6.</span>
+                        <span class="player-info">Idli</span>
+              
+                        <span class="food-quantity">10</span>
+                        <button class="purchase-option"><i class="fas fa-shopping-cart"></i> Purchase</button>
+                    </div> -->
+                </div>
+            </div>
+            <hr>
+            
+        </section>        
+    </main>
+
+    <!-- Popup message -->
+    <div id="popup">
+        <p>Purchase confirmation will be mailed shortly.</p>
+    </div>
+
+    <script>
+        function showPopup() {
+            // Show the popup
+            document.getElementById('popup').style.display = 'block';
+            
+            // Fade out the popup after 2 seconds
+            setTimeout(function() {
+                document.getElementById('popup').style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
